@@ -3,14 +3,14 @@
 #include <time.h>
 
 void raceInitializer(char raceInit[]);
-void tortoiseMoves(unsigned int *tortoisePtr);
-void hareMoves(unsigned int *harePtr);
-void printCurrentRaceStatus(char track[], unsigned int *tortoisePtr, unsigned int *harePtr);
+void tortoiseMoves(int *tortoisePtr);
+void hareMoves(int *harePtr);
+void printCurrentRaceStatus(char track[], int *tortoisePtr, int *harePtr);
 void printWinner(int tortoisePtr, int harePtr);
 
 int main(void)
 {
-    unsigned int tortoisePosition = 1, harePosition = 1;
+    int tortoisePosition = 1, harePosition = 1;
     char raceTrack[101];
     raceTrack[0] = '#';
     srand(time(NULL));
@@ -44,7 +44,7 @@ void raceInitializer(char raceInit[])
     }
 }
 
-void tortoiseMoves(unsigned int *tortoisePtr)
+void tortoiseMoves(int *tortoisePtr)
 {
     int destiny = 1 + rand() % 11;
     if (destiny >= 1 && destiny <= 5)
@@ -65,7 +65,7 @@ void tortoiseMoves(unsigned int *tortoisePtr)
     }
 }
 
-void hareMoves(unsigned int *harePtr)
+void hareMoves(int *harePtr)
 {
     int destiny = 1 + rand() % 11;
     if (destiny >= 3 && destiny <= 4)
@@ -94,7 +94,7 @@ void hareMoves(unsigned int *harePtr)
     }
 }
 
-void printCurrentRaceStatus(char track[], unsigned int *tortoisePtr, unsigned int *harePtr)
+void printCurrentRaceStatus(char track[], int *tortoisePtr, int *harePtr)
 {
     if (*tortoisePtr == *harePtr)
     {
