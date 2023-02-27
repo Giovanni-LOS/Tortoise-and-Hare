@@ -7,6 +7,7 @@ void tortoiseMoves(int *tortoisePtr);
 void hareMoves(int *harePtr);
 void printCurrentRaceStatus(char track[], int *tortoisePtr, int *harePtr);
 void printWinner(int tortoisePtr, int harePtr);
+void delay(unsigned int segs);
 
 int main(void)
 {
@@ -31,6 +32,7 @@ int main(void)
             break;
         }
         printCurrentRaceStatus(raceTrack, &tortoisePosition, &harePosition);
+        delay(1);
     } while (tortoisePosition < 100 || harePosition < 100);
     printWinner(tortoisePosition, harePosition);
     return 0;
@@ -135,5 +137,14 @@ void printWinner(int tortoisePtr, int harePtr)
     if (harePtr == tortoisePtr)
     {
         puts("Its a tie. Underdog impressive !!!!");
+    }
+}
+
+void delay(unsigned int segs)
+{
+    unsigned int timeNow = time(0) + segs;
+    while (time(0) < timeNow)
+    {
+        ;
     }
 }
